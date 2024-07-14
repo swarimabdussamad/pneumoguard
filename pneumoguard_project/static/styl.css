@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px;
+}
+
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+.nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+    color: #ffa500; /* Change color on hover */
+}
+
+.content {
+    background-image: url('background2.png'); /* specify your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Make the content take up the full height of the viewport */
+    color: #ffffff;
+    text-align: center;
+    padding-top: 100px; /* Adjust top padding to center content */
+}
+
+.content h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.5em;
+}
