@@ -1,24 +1,41 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X-Ray Image Classification</title>
+    <title>Chest X-Ray Classification System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>X-Ray Image Classification</h1>
+        <h1>Chest X-Ray Classification System</h1>
+        <p>Upload a chest X-ray image to classify potential conditions</p>
+        
         <form action="/predict" method="post" enctype="multipart/form-data">
-            <label for="image">Upload Image File:</label>
+            <label for="image">Select X-Ray Image:</label>
             <input type="file" id="image" name="image" accept="image/*" required>
-            <button type="submit">Predict</button>
+            <button type="submit">Analyze Image</button>
         </form>
+        
         {% if prediction %}
-            <h2>Prediction: {{ prediction }}</h2>
-            <img src="{{ image_path }}" alt="X-Ray Image">
+            <div class="results">
+                <h2>Analysis Result: {{ prediction }}</h2>
+                {% if image_path %}
+                    <img src="{{ image_path }}" alt="Uploaded X-Ray Image">
+                {% endif %}
+            </div>
         {% endif %}
+        
+        <div class="info">
+            <h3>Supported Classifications:</h3>
+            <ul>
+                <li>Normal</li>
+                <li>Pneumonia</li>
+                <li>Tuberculosis</li>
+                <li>COVID-19</li>
+            </ul>
+            <p><small>Note: This system first verifies if the uploaded image is a chest X-ray before classification.</small></p>
+        </div>
     </div>
 </body>
 </html>
